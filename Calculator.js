@@ -75,6 +75,9 @@ export default function Calculator() {
     const removeLast = () => {
         setEquation(equation.slice(0, equation.length - 1));
     }
+    const removeAll = () => {
+        setEquation("");
+    }
 
     const isSpecialCharacter = (char) => {
         const specialCharacters = ['+', '-', '*', '/', '.'];
@@ -110,7 +113,11 @@ export default function Calculator() {
                                 <TouchableOpacity onPress={removeLast} style={style.remove}>
                                     <Text style={{ color: 'black', }}>⌫</Text>
                                 </TouchableOpacity>
+                                <TouchableOpacity onPress={removeAll} style={[style.remove, {marginLeft: 10}]} >
+                                    <Text style={{ color: 'black', }}>C</Text>
+                                </TouchableOpacity>
                             </View>
+                            
                             <View style={style.line}></View>
                         </View>
                         <View style={style.buttons}>
@@ -141,6 +148,11 @@ export default function Calculator() {
                             <View style={{ display: 'flex', flexDirection: 'column', marginLeft: '5%', marginBottom: 10 }}>
                                 <TouchableOpacity onPress={removeLast} style={style.remove}>
                                     <Text style={{ color: 'black', }}>⌫</Text>
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{ display: 'flex', flexDirection: 'column', marginLeft: '5%', marginBottom: 10 }}>
+                                <TouchableOpacity onPress={removeAll} style={style.remove}>
+                                    <Text style={{ color: 'black', }}>C</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
